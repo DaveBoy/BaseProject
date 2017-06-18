@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
                 Logger.i("onItemClick:" + position);
                 switch (position) {
-                    case 1:
+                    case 0:
                         startActivity(new Intent(MainActivity.this, GlideActivity.class));
                         break;
                 }
