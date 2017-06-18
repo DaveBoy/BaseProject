@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">BaseProject</string>
+    <string name="menu_name">菜单</string>
+    <string name="menu_detail">菜单详细介绍</string>
 </resources>

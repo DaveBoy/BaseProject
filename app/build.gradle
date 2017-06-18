@@ -27,4 +27,27 @@ dependencies {
     compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'com.android.support.constraint:constraint-layout:1.0.0-alpha7'
     testCompile 'junit:junit:4.12'
+/**
+ * recyclerview
+ */
+    compile 'com.android.support:support-v4:25.3.1'
+    compile 'com.android.support:recyclerview-v7:25.3.1'
+/**
+ * butterknife
+ */
+    compile 'com.jakewharton:butterknife:8.6.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.6.0'
+    /**
+     * BaseRecyclerViewAdapterHelper
+     */
+    compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.19'
+/**
+ * logger
+ */
+    compile 'com.orhanobut:logger:2.1.1'
+/**
+ * glide
+ */
+    compile 'com.github.bumptech.glide:glide:4.0.0-RC0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.0.0-RC0'
 }
