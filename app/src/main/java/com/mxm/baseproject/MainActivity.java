@@ -11,6 +11,7 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.mxm.baseproject.adapter.MenuAdapter;
 import com.mxm.baseproject.model.QMenu;
 import com.mxm.baseproject.subView.GlideActivity;
+import com.mxm.baseproject.util.DefaultParameter;
 import com.orhanobut.logger.Logger;
 
 import java.util.ArrayList;
@@ -49,7 +50,8 @@ public class MainActivity extends AppCompatActivity {
 
     private List<QMenu> getMenuData() {
         List<QMenu> list = new ArrayList<>();
-        list.add(new QMenu(null, "Glide图片加载", "使用Glide进行图片加载缓存"));
+        list.add(new QMenu(DefaultParameter.MiniImgUrl1, "Glide图片加载", "使用Glide进行图片加载缓存"));
+        list.add(new QMenu(DefaultParameter.MiniImgUrl1, "欢迎页", "实现常用欢迎页"));
         return list;
     }
 }

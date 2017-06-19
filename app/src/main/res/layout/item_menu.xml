@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="#ffffff">
 
     <ImageView
         android:id="@+id/menu_icon"
         android:layout_width="@dimen/dp_40"
         android:layout_height="@dimen/dp_40"
         android:layout_marginLeft="@dimen/dp_4"
-        android:layout_marginTop="@dimen/dp_4"
-        android:src="@drawable/default_img" />
+        android:layout_marginTop="@dimen/dp_4" />
 
     <TextView
         android:id="@+id/menu_title"
@@ -18,7 +18,7 @@
         android:layout_alignTop="@id/menu_icon"
         android:layout_marginLeft="@dimen/dp_4"
         android:layout_toRightOf="@id/menu_icon"
-        android:text="@string/menu_name" />
+        android:text="@string/menu_name"/>
 
     <TextView
         android:id="@+id/menu_detail"
