@@ -19,8 +19,8 @@ public class MyApplication extends Application {
         super.onCreate();
         mContext = getApplicationContext();
         // 捕捉异常
-        ExceptionHandler catchHandler = ExceptionHandler.getInstance();
-        catchHandler.init(getApplicationContext());
-        catchHandler.collectDeviceInfo(getApplicationContext());
+//        ExceptionHandler catchHandler = ExceptionHandler.getInstance();
+//        catchHandler.init(getApplicationContext());
+//        catchHandler.collectDeviceInfo(getApplicationContext());
     }
 }

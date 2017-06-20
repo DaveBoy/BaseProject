@@ -19,6 +19,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".subView.GlideActivity" />
+        <activity android:name=".subView.PhotoViewActivity"/>
+        <activity android:name=".subView.DragPhotoActivity" android:theme="@style/translucent"/>
     </application>
 
 </manifest>
