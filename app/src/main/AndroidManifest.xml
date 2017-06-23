@@ -20,6 +20,8 @@
         </activity>
         <activity android:name=".subView.GlideActivity" />
         <activity android:name=".subView.PhotoViewActivity"/>
+        <activity android:name=".subView.MyViewActivity" />
+        <activity android:name=".subView.subView2.MyViewActivity1_1" />
         <activity android:name=".subView.DragPhotoActivity" android:theme="@style/translucent"/>
     </application>
 
