@@ -10,9 +10,12 @@ import android.view.View;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.mxm.baseproject.adapter.MenuAdapter;
 import com.mxm.baseproject.model.QMenu;
+import com.mxm.baseproject.subView.BlurActivity;
 import com.mxm.baseproject.subView.GlideActivity;
 import com.mxm.baseproject.subView.MyViewActivity;
 import com.mxm.baseproject.subView.PhotoViewActivity;
+import com.mxm.baseproject.subView.RxJava_RetrofitActivity;
+import com.mxm.baseproject.subView.subView2.MVP.LoginActivity;
 import com.mxm.baseproject.util.DefaultParameter;
 import com.orhanobut.logger.Logger;
 
@@ -48,6 +51,15 @@ public class MainActivity extends AppCompatActivity {
                     case 2:
                         startActivity(new Intent(MainActivity.this, MyViewActivity.class));
                         break;
+                    case 3:
+                        startActivity(new Intent(MainActivity.this, BlurActivity.class));
+                        break;
+                    case 4:
+                        startActivity(new Intent(MainActivity.this, RxJava_RetrofitActivity.class));
+                        break;
+                    case 5:
+                        startActivity(new Intent(MainActivity.this, LoginActivity.class));
+                        break;
                 }
             }
         });
@@ -61,8 +73,9 @@ public class MainActivity extends AppCompatActivity {
         list.add(new QMenu(DefaultParameter.MiniImgUrl1, "Glide图片加载", "使用Glide进行图片加载缓存"));
         list.add(new QMenu(DefaultParameter.MiniImgUrl1, "PhotoView", "点击放大"));
         list.add(new QMenu(DefaultParameter.MiniImgUrl1, "自定义View", "自定义View的初步实现"));
-
-
+        list.add(new QMenu(DefaultParameter.MiniImgUrl1, "高斯模糊", "RenderScript实现高斯模糊"));
+        list.add(new QMenu(DefaultParameter.MiniImgUrl1, "Retrofit2.0+RxJava2.0", "Retrofit2.0+RxJava2.0使用实例"));
+        list.add(new QMenu(DefaultParameter.MiniImgUrl1, "MVP模式", "RenderScript实现高斯模糊"));
 
         list.add(new QMenu(DefaultParameter.MiniImgUrl1, "欢迎页", "实现常用欢迎页"));
 

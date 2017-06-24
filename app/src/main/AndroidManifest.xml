@@ -21,8 +21,13 @@
         <activity android:name=".subView.GlideActivity" />
         <activity android:name=".subView.PhotoViewActivity"/>
         <activity android:name=".subView.MyViewActivity" />
-        <activity android:name=".subView.subView2.MyViewActivity1_1" />
+        <activity android:name=".subView.subView2.MyView.MyViewActivity1_1" />
         <activity android:name=".subView.DragPhotoActivity" android:theme="@style/translucent"/>
+        <activity android:name=".subView.subView2.MyView.MyViewActivity1_2"/>
+        <activity android:name=".subView.BlurActivity"/>
+        <activity android:name=".subView.RxJava_RetrofitActivity"/>
+        <activity android:name=".subView.MVPActivity"/>
+        <activity android:name=".subView.subView2.MVP.LoginActivity"/>
     </application>
 
 </manifest>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+	<declare-styleable name="progressbutton">
+	    <attr name="progressColor" format="color" />
+	    <attr name="progressBgColor" format="color" />
+		<attr name="progressTextColor" format="color" />
+
+	    <attr name="buttonNormalbg" format="color" />
+		<attr name="buttonNormalTextColor" format="color" />
+
+	    <attr name="buttonPressedColor" format="color" />
+		<attr name="buttonPressedTextColor" format="color" />
+
+	    <attr name="buttonCornerRadius" format="dimension"/>
+
+	    <attr name="showProgressNum" format="boolean"/>
+
+		<attr name="strokeWidth" format="integer"/>
+		<attr name="strokeColor" format="color"/>
+
+		<attr name="text" format="string"/>
+	</declare-styleable>
+	<declare-styleable name="ClickEffectView">
+		<attr name="cev_TextColor" format="color"/>
+		<attr name="cev_Text" format="string"/>
+		<attr name="cev_Background" format="reference"/>
+	</declare-styleable>
+</resources>

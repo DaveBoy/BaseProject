@@ -6,4 +6,5 @@
     <dimen name="dp_4">4dp</dimen>
     <dimen name="maxWidth">200dp</dimen>
     <dimen name="maxHeight">200dp</dimen>
+    <dimen name="dp_50">50dp</dimen>
 </resources>
