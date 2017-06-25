@@ -12,6 +12,7 @@ import com.mxm.baseproject.adapter.MenuAdapter;
 import com.mxm.baseproject.model.QMenu;
 import com.mxm.baseproject.subView.BlurActivity;
 import com.mxm.baseproject.subView.GlideActivity;
+import com.mxm.baseproject.subView.MVVMActivity;
 import com.mxm.baseproject.subView.MyViewActivity;
 import com.mxm.baseproject.subView.PhotoViewActivity;
 import com.mxm.baseproject.subView.RxJava_RetrofitActivity;
@@ -60,6 +61,9 @@ public class MainActivity extends AppCompatActivity {
                     case 5:
                         startActivity(new Intent(MainActivity.this, LoginActivity.class));
                         break;
+                    case 6:
+                        startActivity(new Intent(MainActivity.this, MVVMActivity.class));
+                        break;
                 }
             }
         });
@@ -75,7 +79,8 @@ public class MainActivity extends AppCompatActivity {
         list.add(new QMenu(DefaultParameter.MiniImgUrl1, "自定义View", "自定义View的初步实现"));
         list.add(new QMenu(DefaultParameter.MiniImgUrl1, "高斯模糊", "RenderScript实现高斯模糊"));
         list.add(new QMenu(DefaultParameter.MiniImgUrl1, "Retrofit2.0+RxJava2.0", "Retrofit2.0+RxJava2.0使用实例"));
-        list.add(new QMenu(DefaultParameter.MiniImgUrl1, "MVP模式", "RenderScript实现高斯模糊"));
+        list.add(new QMenu(DefaultParameter.MiniImgUrl1, "MVP模式", "MVP模式实现登录"));
+        list.add(new QMenu(DefaultParameter.MiniImgUrl1, "MVVM模式", "MVVM模式实现登录"));
 
         list.add(new QMenu(DefaultParameter.MiniImgUrl1, "欢迎页", "实现常用欢迎页"));
 

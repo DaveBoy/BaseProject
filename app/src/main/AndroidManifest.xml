@@ -26,7 +26,7 @@
         <activity android:name=".subView.subView2.MyView.MyViewActivity1_2"/>
         <activity android:name=".subView.BlurActivity"/>
         <activity android:name=".subView.RxJava_RetrofitActivity"/>
-        <activity android:name=".subView.MVPActivity"/>
+        <activity android:name=".subView.MVVMActivity" />
         <activity android:name=".subView.subView2.MVP.LoginActivity"/>
     </application>
 
