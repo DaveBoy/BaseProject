@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
         list.add(new QMenu(DefaultParameter.MiniImgUrl1, "高斯模糊", "RenderScript实现高斯模糊"));
         list.add(new QMenu(DefaultParameter.MiniImgUrl1, "Retrofit2.0+RxJava2.0", "Retrofit2.0+RxJava2.0使用实例"));
         list.add(new QMenu(DefaultParameter.MiniImgUrl1, "MVP模式", "MVP模式实现登录"));
-        list.add(new QMenu(DefaultParameter.MiniImgUrl1, "MVVM模式", "MVVM模式实现登录"));
+        list.add(new QMenu(DefaultParameter.MiniImgUrl1, "MVVM模式", "MVVM模式实现登录(未完成)"));
 
         list.add(new QMenu(DefaultParameter.MiniImgUrl1, "欢迎页", "实现常用欢迎页"));
 

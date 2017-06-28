@@ -16,8 +16,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.DataSource;
-import com.bumptech.glide.load.engine.GlideException;
+import com.bumptech.glide.load.resource.drawable.GlideDrawable;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
 import com.mxm.baseproject.R;
@@ -40,17 +39,17 @@ public class BlurActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_blur);
         ButterKnife.bind(this);
-        Glide.with(this).load(DefaultParameter.verImgUrl1).listener(new RequestListener<Drawable>() {
+        Glide.with(this).load(DefaultParameter.verImgUrl1).listener(new RequestListener<String, GlideDrawable>() {
             @Override
-            public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
+            public boolean onException(Exception e, String model, Target<GlideDrawable> target, boolean isFirstResource) {
                 Logger.i("onLoadFailed");
                 return false;
             }
 
             @Override
-            public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
+            public boolean onResourceReady(GlideDrawable resource, String model, Target<GlideDrawable> target, boolean isFromMemoryCache, boolean isFirstResource) {
                 Logger.i("onResourceReady");
-                BitmapDrawable bd = (BitmapDrawable) resource;
+                BitmapDrawable bd = (BitmapDrawable) (Drawable)resource;
                 blur_re.setBackground(new BitmapDrawable(MUtil.blurBitmap(BlurActivity.this,bd.getBitmap(),2)));
                 return false;
             }

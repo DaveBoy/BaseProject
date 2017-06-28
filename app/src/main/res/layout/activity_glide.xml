@@ -19,4 +19,19 @@
         android:layout_centerHorizontal="true"
         android:text="@string/loadImg" />
 
+    <Button
+        android:id="@+id/glide_blur_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/glide_btn"
+        android:layout_centerHorizontal="true"
+        android:text="加载高斯模糊" />
+    <Button
+        android:id="@+id/glide_circle_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/glide_blur_btn"
+        android:layout_centerHorizontal="true"
+        android:text="加载圆角图片" />
+
 </RelativeLayout>
