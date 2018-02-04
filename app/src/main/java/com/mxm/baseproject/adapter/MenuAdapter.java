@@ -9,6 +9,7 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.mxm.baseproject.R;
 import com.mxm.baseproject.model.QMenu;
+import com.mxm.baseproject.util.MyApplication;
 
 import java.util.List;
 
@@ -26,7 +27,7 @@ public class MenuAdapter extends BaseQuickAdapter<QMenu, BaseViewHolder> {
         helper.setText(R.id.menu_title, item.getName());
         helper.setText(R.id.menu_detail, item.getDetail());
         if (item.getIcon() != null)
-            Glide.with(helper.getConvertView()).load(item.getIcon()).into((ImageView) helper.getView(R.id.menu_icon));
+            Glide.with(MyApplication.getInstance()).load(item.getIcon()).into((ImageView) helper.getView(R.id.menu_icon));
     }
 
 
