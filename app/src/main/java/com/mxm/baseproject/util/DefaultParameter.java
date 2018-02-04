@@ -12,5 +12,7 @@ public class DefaultParameter {
     /**
      * 大图 竖向
      */
-    public static String verImgUrl1 = "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1497805484383&di=4c35edfb55ea866e041076395e58b931&imgtype=0&src=http%3A%2F%2Fimg3.duitang.com%2Fuploads%2Fitem%2F201406%2F11%2F20140611125231_mRCy8.thumb.700_0.jpeg";
+    public static String verImgUrl1 = "http://p4.gexing.com/shaitu/20120719/1054/500777022a4a3.jpg";
+    public static String verImgUrl2 = "http://up.qqjia.com/z/05/tu7070_2.jpg";
+    public static String verImgUrl3 = "http://img4.duitang.com/uploads/item/201406/14/20140614000150_PdP3B.jpeg";
 }

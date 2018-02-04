@@ -1,14 +1,11 @@
 package com.mxm.baseproject.subView.subView2.MVVM;
 
-import android.app.Activity;
+
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.View;
-import android.widget.ProgressBar;
-import android.widget.Toast;
 
-import com.mxm.baseproject.databinding.ActivityMvvmBinding;
 import com.orhanobut.logger.Logger;
 
 /**
@@ -16,10 +13,9 @@ import com.orhanobut.logger.Logger;
  */
 
 public class LoginViewModel {
+    public ILoginService loginService;//model
+    public ILoginView view;//view
     public LoginInfo info;
-    public ActivityMvvmBinding binding;
-    public Activity activity;
-    public ProgressBar pro;
     public TextWatcher phoneChangeListener = new TextWatcher() {
         @Override
         public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -34,7 +30,7 @@ public class LoginViewModel {
         @Override
         public void afterTextChanged(Editable s) {
             Logger.i("phone:" + s.toString());
-            info.phone = s.toString();
+            info.setPhone(s.toString());
         }
     };
     public TextWatcher passwordChangeListener = new TextWatcher() {
@@ -51,55 +47,49 @@ public class LoginViewModel {
         @Override
         public void afterTextChanged(Editable s) {
             Logger.i("password:" + s.toString());
-            info.password = s.toString();
+            info.setPassword(s.toString());
         }
     };
 
-    public LoginViewModel(Activity activity, ActivityMvvmBinding binding) {
-        this.binding = binding;
-        this.activity = activity;
-        pro = binding.progress;
-        info = new LoginInfo();
-        binding.setLoginViewModel(LoginViewModel.this);
-
-
-    }
-
-    public void onItemClick(View pView) {
-        //onClickLoginUser(pView);
-        info.setRes("登录成功");
-        Toast.makeText(pView.getContext(), "通知Medel层，异步请求，获取用户信息:phone:" + info.phone + " password:" + info.password, Toast.LENGTH_SHORT).show();
+    public LoginViewModel(ILoginView activity) {
+        this.view = activity;
+        this.loginService = new LoginService();
+        this.info = new LoginInfo();
+        info.setPassword("123");
+        info.setPhone("123");
     }
 
     //登录事件
-    public void onClickLoginUser(View v) {
-        if (TextUtils.isEmpty(info.phone) || TextUtils.isEmpty(info.password)) {
-            Toast.makeText(activity, " 用户名或密码为空", Toast.LENGTH_SHORT).show();
-            ;
+    public void onLoign(View v) {
+        Logger.i("onLoign");
+        if (TextUtils.isEmpty(info.getPhone()) || TextUtils.isEmpty(info.getPassword())) {
+            info.setRes("用户名或密码为空");
+            Logger.i("用户名或密码为空");
         } else {
-            pro.setVisibility(View.VISIBLE);
-            new Thread(new Runnable() {
+            info.setProstatus(1);
+            loginService.login(info.getPhone(), info.getPassword(), new LoginListener() {
                 @Override
-                public void run() {
-                    //判断是否登录成功
-                    try {
-                        Thread.sleep(3000);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                    activity.runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            pro.setVisibility(View.GONE);
-                            if (info.phone.equals("111") && info.password.equals("123")) {
-                                info.setRes("登录成功");
-                            } else
-                                info.setRes("密码错误");
-                        }
-                    });
-
+                public void loginSuccess(User user) {
+                    info.setProstatus(0);
+                    info.setRes("登录成功：" + user.toString());
+                    Logger.i("登录成功");
                 }
-            }).start();
+
+                @Override
+                public void loginFailed(String msg) {
+                    info.setProstatus(0);
+                    info.setRes("登录失败：" + msg);
+                    Logger.i("登录失败");
+                }
+            });
         }
     }
+
+    public void onClear(View v) {
+        Logger.i("onClear");
+        info.setPassword("");
+        info.setPhone("");
+        info.setRes("");
+    }
+
 }

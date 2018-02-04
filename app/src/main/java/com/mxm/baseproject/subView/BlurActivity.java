@@ -1,5 +1,6 @@
 package com.mxm.baseproject.subView;
 
+import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.drawable.BitmapDrawable;
@@ -9,7 +10,6 @@ import android.renderscript.Allocation;
 import android.renderscript.RenderScript;
 import android.renderscript.ScriptIntrinsicBlur;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.ImageView;
@@ -32,7 +32,7 @@ import butterknife.ButterKnife;
  * Created by Administrator on 2017/6/23.
  */
 
-public class BlurActivity extends AppCompatActivity{
+public class BlurActivity extends Activity {
     @BindView(R.id.blur_re)RelativeLayout blur_re;
     @BindView(R.id.img)ImageView imageView;
     @Override

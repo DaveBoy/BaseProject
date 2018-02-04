@@ -1,7 +1,7 @@
 package com.mxm.baseproject.subView;
 
+import android.app.Activity;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
 import android.widget.ImageView;
 
@@ -14,7 +14,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class GlideActivity extends AppCompatActivity {
+public class GlideActivity extends Activity {
     @BindView(R.id.glide_img1)
     ImageView glide_img1;
     @BindView(R.id.glide_btn)

@@ -1,8 +1,8 @@
 package com.mxm.baseproject;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -26,7 +26,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends Activity {
     @BindView(R.id.recyclerview)
     RecyclerView recyclerview;
 
@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
     private List<QMenu> getMenuData() {
         List<QMenu> list = new ArrayList<>();
         list.add(new QMenu(DefaultParameter.MiniImgUrl1, "Glide图片加载", "使用Glide进行图片加载缓存"));
-        list.add(new QMenu(DefaultParameter.MiniImgUrl1, "PhotoView", "点击放大"));
+        list.add(new QMenu(DefaultParameter.MiniImgUrl1, "PhotoView", "点击放大,并且可以左右滑动"));
         list.add(new QMenu(DefaultParameter.MiniImgUrl1, "自定义View", "自定义View的初步实现"));
         list.add(new QMenu(DefaultParameter.MiniImgUrl1, "高斯模糊", "RenderScript实现高斯模糊"));
         list.add(new QMenu(DefaultParameter.MiniImgUrl1, "Retrofit2.0+RxJava2.0", "Retrofit2.0+RxJava2.0使用实例"));

@@ -4,9 +4,11 @@
 
     <data>
 
+        <import type="android.view.View" />
         <variable
             name="LoginViewModel"
             type="com.mxm.baseproject.subView.subView2.MVVM.LoginViewModel" />
+
     </data>
 
     <RelativeLayout
@@ -21,7 +23,9 @@
             addTextChangedListener="@{LoginViewModel.phoneChangeListener}"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="80dp" />
+            android:layout_marginTop="80dp"
+            android:hint="请输入电话号码(111)"
+            android:text="@{LoginViewModel.info.phone}" />
 
         <EditText
             android:id="@+id/password_ed"
@@ -29,14 +33,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/phone_ed"
-            android:inputType="textPassword" />
+            android:hint="请输入密码(123)"
+            android:inputType="textPassword"
+            android:text="@{LoginViewModel.info.password}" />
 
         <Button
             android:id="@+id/login"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/password_ed"
-            android:onClick="@{LoginViewModel.onItemClick}"
+            android:onClick="@{LoginViewModel.onLoign}"
             android:text="登录" />
 
         <Button
@@ -46,12 +52,13 @@
             android:layout_alignRight="@id/password_ed"
             android:layout_alignTop="@id/login"
             android:layout_marginLeft="20dp"
+            android:onClick="@{LoginViewModel.onClear}"
             android:text="清除" />
 
         <TextView
             android:id="@+id/time"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="wrap_content"
             android:layout_below="@id/clear"
             android:layout_centerHorizontal="true"
             android:text="@{LoginViewModel.info.res}" />
@@ -60,6 +67,6 @@
             android:id="@+id/progress"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:visibility="gone" />
+            android:visibility="@{LoginViewModel.info.prostatus==1?View.VISIBLE:View.GONE}" />
     </RelativeLayout>
 </layout>

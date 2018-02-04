@@ -1,8 +1,8 @@
 package com.mxm.baseproject.subView;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -15,7 +15,7 @@ import butterknife.ButterKnife;
 
 import static com.mxm.baseproject.R.id.glide_img2;
 
-public class PhotoViewActivity extends AppCompatActivity {
+public class PhotoViewActivity extends Activity {
 
     @BindView(glide_img2)
     ImageView photoViewl;

@@ -6,11 +6,11 @@ package com.mxm.baseproject.subView;
 
 import android.animation.Animator;
 import android.animation.ValueAnimator;
+import android.app.Activity;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
@@ -25,18 +25,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-
-public class DragPhotoActivity extends AppCompatActivity {
-    private ViewPager mViewPager;
-    private List<String> mList;
-    private DragPhotoView[] mPhotoViews;
-
+public class DragPhotoActivity extends Activity {
     int mOriginLeft;
     int mOriginTop;
     int mOriginHeight;
     int mOriginWidth;
     int mOriginCenterX;
     int mOriginCenterY;
+    private ViewPager mViewPager;
+    private List<String> mList;
+    private DragPhotoView[] mPhotoViews;
     private float mTargetHeight;
     private float mTargetWidth;
     private float mScaleX;
@@ -57,16 +55,16 @@ public class DragPhotoActivity extends AppCompatActivity {
 
         mList = new ArrayList<>();
 
-        mList.add("path");
-        mList.add("path");
-        mList.add("path");
+        mList.add(DefaultParameter.verImgUrl1);
+        mList.add(DefaultParameter.verImgUrl2);
+        mList.add(DefaultParameter.verImgUrl3);
 
         mPhotoViews = new DragPhotoView[mList.size()];
 
         for (int i = 0; i < mPhotoViews.length; i++) {
             mPhotoViews[i] = (DragPhotoView) View.inflate(this, R.layout.item_viewpager, null);
             //mPhotoViews[i].setImageResource(R.drawable.wugeng);
-            Glide.with(this).load(DefaultParameter.verImgUrl1).into(mPhotoViews[i]);
+            Glide.with(this).load(mList.get(i)).into(mPhotoViews[i]);
 
             mPhotoViews[i].setOnTapListener(new DragPhotoView.OnTapListener() {
                 @Override

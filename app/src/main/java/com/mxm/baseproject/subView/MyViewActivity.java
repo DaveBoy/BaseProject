@@ -1,8 +1,8 @@
 package com.mxm.baseproject.subView;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -25,7 +25,7 @@ import butterknife.ButterKnife;
  * Created by Mao on 2017/6/21.
  */
 
-public class MyViewActivity extends AppCompatActivity {
+public class MyViewActivity extends Activity {
     @BindView(R.id.recyclerview)
     RecyclerView recyclerView;
 
@@ -57,8 +57,8 @@ public class MyViewActivity extends AppCompatActivity {
 
     private List<QMenu> getMenuData() {
         List<QMenu> list = new ArrayList<>();
-        list.add(new QMenu(DefaultParameter.MiniImgUrl1, "仿美团上方菜单", "使用GridView实现"));
-        list.add(new QMenu(DefaultParameter.MiniImgUrl1, "带进度条的按钮", "自定义View"));
+        list.add(new QMenu(DefaultParameter.MiniImgUrl1, "仿美团上方菜单", "使用GridView+viewPaper实现"));
+        list.add(new QMenu(DefaultParameter.MiniImgUrl1, "点击切换数字，view随数字长度变换", "自定义View"));
         return list;
     }
 }

@@ -1,12 +1,13 @@
 package com.mxm.baseproject.subView.subView2.MVP;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.mxm.baseproject.R;
 import com.orhanobut.logger.Logger;
@@ -19,7 +20,7 @@ import butterknife.OnClick;
  * Created by Administrator on 2017/6/24.
  */
 
-public class LoginActivity extends AppCompatActivity implements ILoginView {
+public class LoginActivity extends Activity implements ILoginView {
 
     @BindView(R.id.phone_ed)
     EditText phone_ed;
@@ -32,6 +33,8 @@ public class LoginActivity extends AppCompatActivity implements ILoginView {
     LoginPresenter presenter;
     @BindView(R.id.progress)
     ProgressBar progress;
+    @BindView(R.id.result_msg)
+    TextView result_msg;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -64,11 +67,15 @@ public class LoginActivity extends AppCompatActivity implements ILoginView {
     @Override
     public void loginSuccess(User user) {
         Logger.i(user.toString());
+        result_msg.setText("登录成功：" + user.toString());
+        result_msg.setVisibility(View.VISIBLE);
     }
 
     @Override
     public void loginFailed(String msg) {
         Logger.e(msg);
+        result_msg.setText("登录失败：" + msg);
+        result_msg.setVisibility(View.VISIBLE);
     }
 
     @Override

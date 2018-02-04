@@ -1,8 +1,8 @@
 package com.mxm.baseproject.subView;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -36,7 +36,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
  * Created by Administrator on 2017/6/24.
  */
 
-public class RxJava_RetrofitActivity extends AppCompatActivity {
+public class RxJava_RetrofitActivity extends Activity {
     public static final Retrofit retrofit = new Retrofit.Builder().baseUrl("http://gc.ditu.aliyun.com/").addCallAdapterFactory(RxJava2CallAdapterFactory.create()).addConverterFactory(GsonConverterFactory.create()).build();
     @BindView(R.id.rxtxt)
     TextView rxtxt;

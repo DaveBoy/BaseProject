@@ -22,29 +22,33 @@ public class LoginPresenter {
         loginView.showDialog();
         loginService.login(loginView.getPhone(), loginView.getPassword(), new LoginListener() {
             @Override
-            public void loginSuccess(User user) {
+            public void loginSuccess(final User user) {
                 Logger.i("Presenter_loginSuccess:"+Thread.currentThread().getName() );
                 handler.post(new Runnable() {
                     @Override
                     public void run() {
                         Logger.i("Presenter_loginSuccess_post:"+Thread.currentThread().getName() );
+                        loginView.hideDialog();
+                        loginView.loginSuccess(user);
                     }
                 });
-                loginView.hideDialog();
-                loginView.loginSuccess(user);
+
+
             }
 
             @Override
-            public void loginFailed(String msg) {
+            public void loginFailed(final String msg) {
                 Logger.i("Presenter_loginFailed:"+Thread.currentThread().getName() );
                 handler.post(new Runnable() {
                     @Override
                     public void run() {
                         Logger.i("Presenter_loginFailed_post:"+Thread.currentThread().getName() );
+                        loginView.hideDialog();
+                        loginView.loginFailed(msg);
                     }
                 });
-                loginView.hideDialog();
-                loginView.loginFailed(msg);
+
+
             }
         });
     }
