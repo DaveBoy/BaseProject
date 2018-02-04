@@ -12,11 +12,14 @@ import com.mxm.baseproject.adapter.MenuAdapter;
 import com.mxm.baseproject.model.QMenu;
 import com.mxm.baseproject.subView.BlurActivity;
 import com.mxm.baseproject.subView.GlideActivity;
-import com.mxm.baseproject.subView.MVVMActivity;
-import com.mxm.baseproject.subView.MyViewActivity;
 import com.mxm.baseproject.subView.PhotoViewActivity;
-import com.mxm.baseproject.subView.RxJava_RetrofitActivity;
 import com.mxm.baseproject.subView.subView2.MVP.LoginActivity;
+import com.mxm.baseproject.subView.subView2.MVVM.MVVMActivity;
+import com.mxm.baseproject.subView.subView2.MyView.MyViewActivity;
+import com.mxm.baseproject.subView.subView2.Refresh.RefreshActivity;
+import com.mxm.baseproject.subView.subView2.Retrofit.RxJava_RetrofitActivity;
+import com.mxm.baseproject.subView.subView2.SlidingMenu.SlidingMenuActivity;
+import com.mxm.baseproject.subView.subView2.Welcome.WelcomeActivity;
 import com.mxm.baseproject.util.DefaultParameter;
 import com.orhanobut.logger.Logger;
 
@@ -64,6 +67,15 @@ public class MainActivity extends Activity {
                     case 6:
                         startActivity(new Intent(MainActivity.this, MVVMActivity.class));
                         break;
+                    case 7:
+                        startActivity(new Intent(MainActivity.this, WelcomeActivity.class));
+                        break;
+                    case 8:
+                        startActivity(new Intent(MainActivity.this, SlidingMenuActivity.class));
+                        break;
+                    case 9:
+                        startActivity(new Intent(MainActivity.this, RefreshActivity.class));
+                        break;
                 }
             }
         });
@@ -74,7 +86,7 @@ public class MainActivity extends Activity {
 
     private List<QMenu> getMenuData() {
         List<QMenu> list = new ArrayList<>();
-        list.add(new QMenu(DefaultParameter.MiniImgUrl1, "Glide图片加载", "使用Glide进行图片加载缓存"));
+        list.add(new QMenu(DefaultParameter.MiniImgUrl1, "Glide图片加载", "使用Glide进行图片加载,高斯模糊，圆角图片"));
         list.add(new QMenu(DefaultParameter.MiniImgUrl1, "PhotoView", "点击放大,并且可以左右滑动"));
         list.add(new QMenu(DefaultParameter.MiniImgUrl1, "自定义View", "自定义View的初步实现"));
         list.add(new QMenu(DefaultParameter.MiniImgUrl1, "高斯模糊", "RenderScript实现高斯模糊"));
@@ -84,7 +96,8 @@ public class MainActivity extends Activity {
 
         list.add(new QMenu(DefaultParameter.MiniImgUrl1, "欢迎页", "实现常用欢迎页"));
 
-
+        list.add(new QMenu(DefaultParameter.MiniImgUrl1, "侧边菜单", "DrawerLayout实现"));
+        list.add(new QMenu(DefaultParameter.MiniImgUrl1, "下拉刷新上拉加载", "smartrefresh实现"));
         return list;
     }
 }

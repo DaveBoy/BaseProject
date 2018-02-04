@@ -1,4 +1,4 @@
-package com.mxm.baseproject.subView;
+package com.mxm.baseproject.subView.subView2.MVVM;
 
 import android.app.Activity;
 import android.databinding.DataBindingUtil;
@@ -7,8 +7,6 @@ import android.support.annotation.Nullable;
 
 import com.mxm.baseproject.R;
 import com.mxm.baseproject.databinding.ActivityMvvmBinding;
-import com.mxm.baseproject.subView.subView2.MVVM.ILoginView;
-import com.mxm.baseproject.subView.subView2.MVVM.LoginViewModel;
 
 /**
  * Created by Administrator on 2017/6/24.

@@ -1,4 +1,4 @@
-package com.mxm.baseproject.subView;
+package com.mxm.baseproject.subView.subView2.Retrofit;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -8,9 +8,6 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.mxm.baseproject.R;
-import com.mxm.baseproject.subView.subView2.Retrofit.AliAddrsBean;
-import com.mxm.baseproject.subView.subView2.Retrofit.ApiService;
-import com.mxm.baseproject.subView.subView2.Retrofit.IndexRequestBean;
 import com.orhanobut.logger.Logger;
 
 import java.util.ArrayList;

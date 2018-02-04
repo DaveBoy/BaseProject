@@ -3,6 +3,8 @@
     package="com.mxm.baseproject">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.VIBRATE" /> <!--震动权限-->
+
     <application
         android:name=".util.MyApplication"
         android:allowBackup="true"
@@ -10,7 +12,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@android:style/Theme.Light.NoTitleBar">
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,14 +22,17 @@
         </activity>
         <activity android:name=".subView.GlideActivity" />
         <activity android:name=".subView.PhotoViewActivity"/>
-        <activity android:name=".subView.MyViewActivity" />
+        <activity android:name=".subView.subView2.MyView.MyViewActivity" />
         <activity android:name=".subView.subView2.MyView.MyViewActivity1_1" />
         <activity android:name=".subView.DragPhotoActivity" android:theme="@style/translucent"/>
         <activity android:name=".subView.subView2.MyView.MyViewActivity1_2"/>
         <activity android:name=".subView.BlurActivity"/>
-        <activity android:name=".subView.RxJava_RetrofitActivity"/>
-        <activity android:name=".subView.MVVMActivity" />
+        <activity android:name=".subView.subView2.Retrofit.RxJava_RetrofitActivity" />
+        <activity android:name=".subView.subView2.MVVM.MVVMActivity" />
         <activity android:name=".subView.subView2.MVP.LoginActivity"/>
+        <activity android:name=".subView.subView2.Welcome.WelcomeActivity" />
+        <activity android:name=".subView.subView2.SlidingMenu.SlidingMenuActivity" />
+        <activity android:name=".subView.subView2.Refresh.RefreshActivity" />
     </application>
 
 </manifest>

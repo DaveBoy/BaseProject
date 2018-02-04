@@ -1,4 +1,4 @@
-package com.mxm.baseproject.subView;
+package com.mxm.baseproject.subView.subView2.MyView;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -11,8 +11,6 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.mxm.baseproject.R;
 import com.mxm.baseproject.adapter.MenuAdapter;
 import com.mxm.baseproject.model.QMenu;
-import com.mxm.baseproject.subView.subView2.MyView.MyViewActivity1_1;
-import com.mxm.baseproject.subView.subView2.MyView.MyViewActivity1_2;
 import com.mxm.baseproject.util.DefaultParameter;
 
 import java.util.ArrayList;

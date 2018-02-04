@@ -3,4 +3,6 @@
     <string name="menu_name">菜单</string>
     <string name="menu_detail">菜单详细介绍</string>
     <string name="loadImg">加载图片</string>
+    <string name="open">打开</string>
+    <string name="close">关闭</string>
 </resources>

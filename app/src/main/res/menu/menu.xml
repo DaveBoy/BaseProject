@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <group android:id="@+id/group1">
+        <item
+            android:id="@+id/nav_name"
+            android:icon="@drawable/default_img"
+            android:title="person"
+            app:showAsAction="ifRoom" />
+        <item
+            android:id="@+id/nav_music"
+            android:icon="@drawable/default_img"
+            android:title="music"
+            app:showAsAction="ifRoom" />
+        <item
+            android:id="@+id/nav_search"
+            android:icon="@drawable/default_img"
+            android:title="search"
+            app:showAsAction="ifRoom" />
+    </group>
+    <group android:id="@+id/group2">
+        <item
+            android:id="@+id/nav_name2"
+            android:icon="@drawable/default_img"
+            android:title="person"
+            app:showAsAction="ifRoom" />
+        <item
+            android:id="@+id/nav_music2"
+            android:icon="@drawable/default_img"
+            android:title="music"
+            app:showAsAction="ifRoom" />
+        <item
+            android:id="@+id/nav_search2"
+            android:icon="@drawable/default_img"
+            android:title="search"
+            app:showAsAction="ifRoom" />
+    </group>
+    <group android:id="@+id/group3">
+        <item
+            android:id="@+id/nav_name3"
+            android:icon="@drawable/default_img"
+            android:title="person"
+            app:showAsAction="ifRoom" />
+        <item
+            android:id="@+id/nav_music3"
+            android:icon="@drawable/default_img"
+            android:title="music"
+            app:showAsAction="ifRoom" />
+        <item
+            android:id="@+id/nav_search3"
+            android:icon="@drawable/default_img"
+            android:title="search"
+            app:showAsAction="ifRoom" />
+    </group>
+</menu>
