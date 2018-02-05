@@ -45,6 +45,9 @@ public class MyViewActivity extends Activity {
                     case 1:
                         startActivity(new Intent(MyViewActivity.this, MyViewActivity1_2.class));
                         break;
+                    case 2:
+                        startActivity(new Intent(MyViewActivity.this, MyViewActivity1_3.class));
+                        break;
                 }
             }
         });
@@ -57,6 +60,8 @@ public class MyViewActivity extends Activity {
         List<QMenu> list = new ArrayList<>();
         list.add(new QMenu(DefaultParameter.MiniImgUrl1, "仿美团上方菜单", "使用GridView+viewPaper实现"));
         list.add(new QMenu(DefaultParameter.MiniImgUrl1, "点击切换数字，view随数字长度变换", "自定义View"));
+        list.add(new QMenu(DefaultParameter.MiniImgUrl1, "仿美团上方菜单", "主要区别在于动态生成下方小圆点,其实没啥区别"));
+
         return list;
     }
 }

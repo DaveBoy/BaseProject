@@ -33,6 +33,8 @@
         <activity android:name=".subView.subView2.Welcome.WelcomeActivity" />
         <activity android:name=".subView.subView2.SlidingMenu.SlidingMenuActivity" />
         <activity android:name=".subView.subView2.Refresh.RefreshActivity" />
+        <activity android:name=".subView.subView2.MyView.MyViewActivity1_3" />
+
     </application>
 
 </manifest>
