@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'com.tencent.tinker.patch'/** tinker*/
 
 android {
     compileSdkVersion 25
@@ -25,7 +26,7 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
@@ -33,62 +34,178 @@ dependencies {
     compile 'com.android.support:design:25.3.1'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     testCompile 'junit:junit:4.12'
-/**
- * recyclerview
- */
+    /**
+     * recyclerview
+     */
     compile 'com.android.support:support-v4:25.3.1'
     compile 'com.android.support:recyclerview-v7:25.3.1'
-/**
- * butterknife
- */
+    /**
+     * butterknife
+     */
     compile 'com.jakewharton:butterknife:8.6.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.6.0'
     /**
      * BaseRecyclerViewAdapterHelper
      */
     compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.19'
-/**
- * logger
- */
+    /**
+     * logger
+     */
     compile 'com.orhanobut:logger:2.1.1'
-/**
- * glide
- */
+    /**
+     * glide
+     */
     compile 'com.github.bumptech.glide:glide:3.7.0'
-
     compile 'jp.wasabeef:glide-transformations:2.0.2'
     compile 'jp.co.cyberagent.android.gpuimage:gpuimage-library:1.4.1'
-
-/**
- * DragPhotoView
- */
+    /**
+     * DragPhotoView
+     */
     compile 'com.github.githubwing:DragPhotoView:1.0.2'
-/**
- * retrofit2.0
- */
+    /**
+     * retrofit2.0
+     */
     compile 'com.squareup.retrofit2:retrofit:2.3.0'
     compile 'com.squareup.retrofit2:converter-gson:2.3.0'
-
     compile 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
-
-
-
-
-/**
- * rxjava2
- *
- */
-    compile "io.reactivex.rxjava2:rxjava:2.1.1"
+    /**
+     * rxjava2
+     *
+     */
+    compile 'io.reactivex.rxjava2:rxjava:2.1.1'
     compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
-/**
- * welcome
- */
+    /**
+     * welcome
+     */
     compile 'com.github.apl-devs:appintro:v4.2.2'
-
     /**
      * SmartRefreshLayout
      */
     compile 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.5-alpha-3'
-    compile 'com.scwang.smartrefresh:SmartRefreshHeader:1.0.5-alpha-3'//没有使用特殊Header，可以不加这行
-    compile 'com.android.support:appcompat-v7:25.3.1'//版本随意（必须）
+    compile 'com.scwang.smartrefresh:SmartRefreshHeader:1.0.5-alpha-3'
+    //没有使用特殊Header，可以不加这行
+    compile 'com.android.support:appcompat-v7:25.3.1'
+    //版本随意（必须）
+    /**
+     * tinker
+     */
+    compile 'com.tencent.tinker:tinker-android-lib:1.7.7'
+    provided 'com.tencent.tinker:tinker-android-anno:1.7.7'
+    compile 'com.android.support:multidex:1.0.1'
+/**
+ * rxpermissions
+ */
+    compile 'com.tbruyelle.rxpermissions2:rxpermissions:0.9.5@aar'
+
 }
+
+/**
+ * tinker
+ */
+def bakPath = file("${buildDir}/bakApk/")
+
+ext {
+    tinkerEnabled = true
+    tinkerOldApkPath = "${bakPath}/app-debug-0207-00-28-29.apk"
+    //proguard mapping file to build patch apk
+    tinkerApplyMappingPath = "${bakPath}/"
+    //resource R.txt to build patch apk, must input if there is resource changed
+    tinkerApplyResourcePath = "${bakPath}/app-debug-0207-00-28-29-R.txt"
+}
+
+def getOldApkPath() {
+    return ext.tinkerOldApkPath
+}
+def getApplyMappingPath() {
+    return ext.tinkerApplyMappingPath
+}
+def getApplyResourceMappingPath() {
+    return  ext.tinkerApplyResourcePath
+}
+
+if (ext.tinkerEnabled) {
+    tinkerPatch {
+        oldApk = getOldApkPath()
+        ignoreWarning = false
+        useSign = true
+
+//        packageConfig {
+//
+//            configField("TINKER_ID", "2.0")
+//        }
+        buildConfig{
+            tinkerId = "1.0"
+            applyMapping = getApplyMappingPath()
+            applyResourceMapping = getApplyResourceMappingPath()
+        }
+
+        lib {
+
+            pattern = ["lib/armeabi/*.so"]
+        }
+
+        res {
+
+            pattern = ["res/*", "assets/*", "resources.arsc", "AndroidManifest.xml"]
+
+            ignoreChange = ["assetsmple_meta.txt"]
+
+            largeModSize = 100
+        }
+
+        sevenZip {
+
+            zipArtifact = "com.tencent.mm:SevenZip:1.1.10"
+        }
+
+        dex {
+
+            dexMode = "jar"
+
+            pattern = ["classes*.dex",
+                       "assetscondary-dex-?.jar"]
+
+            loader = ["com.tencent.tinker.loader.*",
+                      "com.tencent.tinker.*",
+                      "com.mxm.baseproject.util.MyApplication"
+            ]
+        }
+
+
+    }
+}
+
+android.applicationVariants.all { variant ->
+    /**
+     * task type, you want to bak
+     */
+    def taskName = variant.name
+
+    tasks.all {
+        if ("assemble${taskName.capitalize()}".equalsIgnoreCase(it.name)) {
+            it.doLast {
+                copy {
+                    def date = new Date().format("MMdd-HH-mm-ss")
+                    from "${buildDir}/outputs/apk/${project.getName()}-${taskName}.apk"
+                    into bakPath
+                    rename { String fileName ->
+                        fileName.replace("${project.getName()}-${taskName}.apk", "${project.getName()}-${taskName}-${date}.apk")
+                    }
+
+                    from "${buildDir}/outputs/mapping/${taskName}/mapping.txt"
+                    into bakPath
+                    rename { String fileName ->
+                        fileName.replace("mapping.txt", "${project.getName()}-${taskName}-${date}-mapping.txt")
+                    }
+
+                    from "${buildDir}/intermediates/symbols/${taskName}/R.txt"
+                    into bakPath
+                    rename { String fileName ->
+                        fileName.replace("R.txt", "${project.getName()}-${taskName}-${date}-R.txt")
+                    }
+                }
+            }
+        }
+    }
+}
+
