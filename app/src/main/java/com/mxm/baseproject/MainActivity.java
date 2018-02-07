@@ -13,7 +13,7 @@ import com.mxm.baseproject.model.QMenu;
 import com.mxm.baseproject.subView.BlurActivity;
 import com.mxm.baseproject.subView.GlideActivity;
 import com.mxm.baseproject.subView.PhotoViewActivity;
-import com.mxm.baseproject.subView.TinkerActivity;
+import com.mxm.baseproject.subView.TinkerPlateformActivity;
 import com.mxm.baseproject.subView.subView2.MVP.LoginActivity;
 import com.mxm.baseproject.subView.subView2.MVVM.MVVMActivity;
 import com.mxm.baseproject.subView.subView2.MyView.MyViewActivity;
@@ -78,7 +78,8 @@ public class MainActivity extends Activity {
                         startActivity(new Intent(MainActivity.this, RefreshActivity.class));
                         break;
                     case 10:
-                        startActivity(new Intent(MainActivity.this, TinkerActivity.class));
+                        // startActivity(new Intent(MainActivity.this, TinkerActivity.class));
+                        startActivity(new Intent(MainActivity.this, TinkerPlateformActivity.class));
                         break;
                 }
             }
@@ -102,7 +103,8 @@ public class MainActivity extends Activity {
 
         list.add(new QMenu(DefaultParameter.MiniImgUrl1, "侧边菜单", "DrawerLayout实现"));
         list.add(new QMenu(DefaultParameter.MiniImgUrl1, "下拉刷新上拉加载", "smartrefresh实现"));
-        list.add(new QMenu(DefaultParameter.MiniImgUrl1, "tinker热更新", "demo"));
+        // list.add(new QMenu(DefaultParameter.MiniImgUrl1, "tinker热更新", "demo,暂时使用tinkerplateform"));
+        list.add(new QMenu(DefaultParameter.MiniImgUrl1, "tinkerplateform热更新", "demo,tinkerplateform"));
         return list;
     }
 }

@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
-apply plugin: 'com.tencent.tinker.patch'/** tinker*/
+//apply plugin: 'com.tencent.tinker.patch'/** tinker*/
+apply from: 'tinkerpatch.gradle'
 
 android {
     compileSdkVersion 25
@@ -89,8 +90,15 @@ dependencies {
     /**
      * tinker
      */
-    compile 'com.tencent.tinker:tinker-android-lib:1.7.7'
+   /* compile 'com.tencent.tinker:tinker-android-lib:1.7.7'
     provided 'com.tencent.tinker:tinker-android-anno:1.7.7'
+    compile 'com.android.support:multidex:1.0.1'*/
+
+    /**
+     * tinkerplatform
+      */
+    provided("com.tinkerpatch.tinker:tinker-android-anno:1.9.2")
+    compile("com.tinkerpatch.sdk:tinkerpatch-android-sdk:1.2.2")
     compile 'com.android.support:multidex:1.0.1'
 /**
  * rxpermissions
@@ -102,6 +110,7 @@ dependencies {
 /**
  * tinker
  */
+/*
 def bakPath = file("${buildDir}/bakApk/")
 
 ext {
@@ -176,11 +185,8 @@ if (ext.tinkerEnabled) {
 }
 
 android.applicationVariants.all { variant ->
-    /**
-     * task type, you want to bak
-     */
-    def taskName = variant.name
 
+    def taskName = variant.name
     tasks.all {
         if ("assemble${taskName.capitalize()}".equalsIgnoreCase(it.name)) {
             it.doLast {
@@ -207,5 +213,6 @@ android.applicationVariants.all { variant ->
             }
         }
     }
-}
+
+} */
 

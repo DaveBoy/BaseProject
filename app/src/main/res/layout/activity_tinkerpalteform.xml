@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/tinkerform_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="更新补丁" />
+
+    <TextView
+        android:id="@+id/tinkerform_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tinkerform_btn"
+        android:layout_centerHorizontal="true"
+        android:text="哪里bug？你看错了" />
+    <!-- android:text="这里有个bug" />-->
+
+</RelativeLayout>
