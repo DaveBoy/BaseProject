@@ -23,6 +23,7 @@ import io.reactivex.functions.Consumer;
 
 /**
  * 本地补丁
+ * https://www.jianshu.com/p/9680a58e67fe
  */
 public class TinkerActivity extends Activity {
     @BindView(R.id.tinker_btn)

@@ -14,6 +14,7 @@ import com.mxm.baseproject.subView.BlurActivity;
 import com.mxm.baseproject.subView.GlideActivity;
 import com.mxm.baseproject.subView.PhotoViewActivity;
 import com.mxm.baseproject.subView.TinkerPlateformActivity;
+import com.mxm.baseproject.subView.subView2.ColorFullTextview.ColorFullActivity;
 import com.mxm.baseproject.subView.subView2.MVP.LoginActivity;
 import com.mxm.baseproject.subView.subView2.MVVM.MVVMActivity;
 import com.mxm.baseproject.subView.subView2.MyView.MyViewActivity;
@@ -81,6 +82,9 @@ public class MainActivity extends Activity {
                         // startActivity(new Intent(MainActivity.this, TinkerActivity.class));
                         startActivity(new Intent(MainActivity.this, TinkerPlateformActivity.class));
                         break;
+                    case 11:
+                        startActivity(new Intent(MainActivity.this, ColorFullActivity.class));
+                        break;
                 }
             }
         });
@@ -105,6 +109,8 @@ public class MainActivity extends Activity {
         list.add(new QMenu(DefaultParameter.MiniImgUrl1, "下拉刷新上拉加载", "smartrefresh实现"));
         // list.add(new QMenu(DefaultParameter.MiniImgUrl1, "tinker热更新", "demo,暂时使用tinkerplateform"));
         list.add(new QMenu(DefaultParameter.MiniImgUrl1, "tinkerplateform热更新", "demo,tinkerplateform"));
+        list.add(new QMenu(DefaultParameter.MiniImgUrl1, "彩色字体霓虹灯字体", "LinearGradient颜色渐变"));
+
         return list;
     }
 }

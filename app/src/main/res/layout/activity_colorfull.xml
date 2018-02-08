@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.mxm.baseproject.subView.subView2.ColorFullTextview.ColorTextview
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="这里应该有彩色的字"
+        android:textSize="26dp" />
+
+    <com.mxm.baseproject.subView.subView2.ColorFullTextview.LedTextview
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="这个字会像霓虹灯一样闪亮吗"
+        android:textSize="26dp" />
+
+    <TextView
+        android:id="@+id/color_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="baiduoryouku正常粗体斜体粗斜体上标下标前景色背景色图片"
+        android:textSize="26dp" />
+</LinearLayout>

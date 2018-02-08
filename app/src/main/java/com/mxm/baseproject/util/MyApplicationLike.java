@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Build;
 import android.widget.Toast;
 
+import com.mxm.baseproject.BuildConfig;
 import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.FormatStrategy;
 import com.orhanobut.logger.LogAdapter;
@@ -74,7 +75,8 @@ public class MyApplicationLike extends DefaultApplicationLike {
     @Override
     public void onCreate() {
         super.onCreate();
-        initTinker();
+        if (BuildConfig.TINKER_ENABLE)
+            initTinker();
         mContext = getApplication().getApplicationContext();
         FormatStrategy formatStrategy = PrettyFormatStrategy.newBuilder()
                 .showThreadInfo(false)  // (Optional) Whether to show thread info or not. Default true

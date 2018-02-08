@@ -37,6 +37,7 @@
         <activity android:name=".subView.subView2.MyView.MyViewActivity1_3" />
         <activity android:name=".subView.TinkerActivity" />
         <activity android:name=".subView.TinkerPlateformActivity" />
+        <activity android:name=".subView.subView2.ColorFullTextview.ColorFullActivity" />
     </application>
 
 </manifest>
